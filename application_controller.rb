@@ -7,11 +7,10 @@ class MyApp < Sinatra::Base
     erb :index
   end
   
-  post "/results" do
-    
-    @sender_name = param[:sender_name]
-    @receivers_name = param[:receivers_name]
-    @message = param[:message]
+  get '/results' do
+     @sender_name = params[:sender_name]
+    @receivers_name = params[:receivers_name]
+    @message = params[:message]
     card_maker(@sender_name,@receivers_name,@message)
     
     erb :results
